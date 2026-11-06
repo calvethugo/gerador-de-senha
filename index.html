@@ -1,96 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gerador de Senha</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./src/css/estilo.css" />
-    <script src="./src/js/index.js" defer></script>
-  </head>
-  <body>
-    <div id="register-container">
-      <div id="register-banner">
-        <div id="banner-layer">
-          <h1>Seja bem-vindo</h1>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#10151c" />
+  <title>CIPHER VAULT — Password Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/css/estilo.css" />
+  <script src="./src/js/index.js" defer></script>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <main class="vault-shell">
+    <header class="topbar">
+      <a class="wordmark" href="#" aria-label="Cipher Vault início">
+        <span class="vault-icon"><i></i><i></i><i></i></span>
+        <span>CIPHER<span class="wordmark-light">/VAULT</span></span>
+      </a>
+      <div class="top-center"><span class="status-led"></span> LOCAL GENERATION ENGINE <span class="slash">/</span> SECURE MODE</div>
+      <div class="top-code">SYS.ID 08—41</div>
+    </header>
+
+    <section class="hero">
+      <p class="kicker"><span>SECURITY TOOLKIT</span><span class="kicker-line"></span><span>MODULE 01</span></p>
+      <h1>ACCESS<br/><span>PROTECTED.</span></h1>
+      <p class="hero-copy">Gere credenciais aleatórias com controle total sobre os caracteres. Sua senha é criada localmente no navegador.</p>
+    </section>
+
+    <section class="vault-layout">
+      <div class="main-console">
+        <div class="console-head">
+          <div><span class="section-tag">01 / OUTPUT</span><h2>Generated key</h2></div>
+          <span class="chip"><i></i> READY</span>
         </div>
+        <div class="password-display">
+          <div class="display-label">YOUR PASSWORD <span>● PRIVATE</span></div>
+          <output id="generated-password" aria-live="polite">••••••••••••••••</output>
+          <div class="display-bottom">
+            <span id="password-placeholder">AGUARDANDO GERAÇÃO...</span>
+            <button id="copy-password" type="button" disabled><span>▣</span> COPY KEY</button>
+          </div>
+        </div>
+
+        <div class="strength-row">
+          <div class="strength-label"><span>ESTIMATED STRENGTH</span><strong id="strength-text">NOT GENERATED</strong></div>
+          <div class="strength-meter" id="strength-meter" aria-label="Força estimada da senha">
+            <i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+
+        <button id="generate-password" class="generate-button" type="button">
+          <span class="generate-symbol">↻</span><span>GENERATE NEW PASSWORD</span><span class="generate-shortcut">[ ENTER ]</span>
+        </button>
+
+        <p class="feedback" id="feedback" role="status" aria-live="polite">ENGINE READY — CONFIGURE YOUR KEY</p>
       </div>
-      <form id="register-form">
-        <h2>Crie sua conta:</h2>
-        <p>Registre-se para utilizar todas as funcionalidades do sistema</p>
-        <div class="form-control">
-          <label for="name">Nome</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Digite seu nome"
-          />
+
+      <aside class="settings-panel">
+        <div class="settings-head"><span class="section-tag">02 / CONFIGURATION</span><span class="settings-number">CFG—008</span></div>
+        <h2>Key parameters</h2>
+
+        <div class="length-control">
+          <div class="setting-line"><label for="length">PASSWORD LENGTH</label><output id="length-value">18</output></div>
+          <input id="length" type="range" min="8" max="64" value="18" />
+          <div class="range-ends"><span>08 CHAR</span><span>64 CHAR</span></div>
         </div>
-        <div class="form-control">
-          <label for="email">E-mail</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Digite seu e-mail"
-          />
+
+        <div class="options-group">
+          <p class="options-title">CHARACTER SET</p>
+          <label class="option-row" for="uppercase"><span class="option-copy"><strong>Uppercase</strong><small>A — Z</small></span><input id="uppercase" type="checkbox" checked /><span class="toggle"></span></label>
+          <label class="option-row" for="lowercase"><span class="option-copy"><strong>Lowercase</strong><small>a — z</small></span><input id="lowercase" type="checkbox" checked /><span class="toggle"></span></label>
+          <label class="option-row" for="numbers"><span class="option-copy"><strong>Numbers</strong><small>0 — 9</small></span><input id="numbers" type="checkbox" checked /><span class="toggle"></span></label>
+          <label class="option-row" for="symbols"><span class="option-copy"><strong>Symbols</strong><small>! @ # $ % &</small></span><input id="symbols" type="checkbox" /><span class="toggle"></span></label>
         </div>
-        <div class="form-control">
-          <label for="password">Senha</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Digite a sua senha"
-          />
-        </div>
-        <p>
-          Quer ajuda para criar uma senha segura?
-          <span id="open-generate-password">Clique aqui.</span>
-        </p>
-        <div id="generate-options" class="hide">
-          <p>Selecione as opções que você deseja:</p>
-          <div class="form-control">
-            <label for="length">Quantidade de caracteres:</label>
-            <input type="text" id="length" name="length" value="10" />
-          </div>
-          <div class="form-control">
-            <label for="letters">Letras:</label>
-            <input type="checkbox" id="letters" name="letters" checked />
-          </div>
-          <div class="form-control">
-            <label for="numbers">Números:</label>
-            <input type="checkbox" id="numbers" name="numbers" checked />
-          </div>
-          <div class="form-control">
-            <label for="symbols">Símbolos:</label>
-            <input type="checkbox" id="symbols" name="symbols" checked />
-          </div>
-          <button id="generate-password">Criar senha</button>
-        </div>
-        <div id="generated-password">
-          <p>Aqui está a sua senha:</p>
-          <h4></h4>
-          <button id="copy-password">Copiar</button>
-        </div>
-        <div class="form-control">
-          <label for="confirmpassword">Confirmação de Senha</label>
-          <input
-            type="password"
-            name="confirmpassword"
-            id="confirmpassword"
-            placeholder="Confirme a sua senha"
-          />
-        </div>
-        <input type="submit" value="Cadastrar" />
-      </form>
-    </div>
-  </body>
+
+        <div class="settings-note"><span class="note-icon">i</span><p>Selecione ao menos um conjunto de caracteres. Quanto maior e mais variada a senha, melhor tende a ser sua resistência.</p></div>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      <span>CIPHER VAULT <b>—</b> PERSONAL SECURITY TOOL</span>
+      <span>NO ACCOUNT <b>·</b> NO STORAGE <b>·</b> NO TRACKING</span>
+      <span>BUILD 2026.08</span>
+    </footer>
+  </main>
+</body>
 </html>
