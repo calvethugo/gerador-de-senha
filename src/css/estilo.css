@@ -154,3 +154,98 @@ h1 span{color:var(--amber)}.terminal-subtitle{font-size:8px;letter-spacing:.08em
  .vent-grille{gap:2px}.vent-grille i{width:8px}
  .telemetry-strip>div{padding:6px}
 }
+
+
+/* COCKPIT VIEW — seated operator perspective */
+body{
+ min-height:100svh;
+ background:
+  radial-gradient(ellipse at 50% 39%,#4b4d40 0%,#292d27 24%,#171d19 49%,#090d0b 78%,#050706 100%);
+}
+body::before{
+ opacity:.42;
+ background:
+  linear-gradient(90deg,transparent 0 8%,#050806 8.2% 8.5%,transparent 8.8% 91%,#050806 91.2% 91.5%,transparent 92%),
+  repeating-linear-gradient(90deg,transparent 0 150px,#a9a58a0b 151px,#0000 154px),
+  repeating-linear-gradient(0deg,transparent 0 90px,#b6b49b08 91px,#0000 94px);
+}
+.room-background{
+ position:fixed;inset:0;overflow:hidden;
+ background:
+  linear-gradient(180deg,#101511 0%,#242a23 22%,transparent 43%),
+  linear-gradient(90deg,#0a0e0c 0%,#252a22 17%,transparent 30% 70%,#252a22 83%,#090d0b 100%);
+}
+.room-background::before{
+ content:"";position:absolute;inset:0 0 23%;
+ background:
+  linear-gradient(90deg,transparent 0 4%,#080c09 4.3% 5%,#55594a 5.2% 5.5%,transparent 5.8% 94%,#55594a 94.5% 94.8%,#080c09 95% 96%,transparent 96.2%),
+  linear-gradient(180deg,#070a08 0 5%,transparent 5.5% 78%,#090d0a 79% 81%,transparent 82%),
+  repeating-linear-gradient(90deg,transparent 0 95px,#8d927b16 96px 98px,transparent 99px 190px);
+ clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
+}
+.room-background::after{
+ content:"";position:absolute;left:-10%;right:-10%;bottom:-5%;height:34%;
+ background:
+  repeating-linear-gradient(90deg,transparent 0 58px,#9b9a8118 59px 61px,transparent 62px 116px),
+  repeating-linear-gradient(0deg,#080c0a 0 3px,#252a23 4px 6px);
+ transform:perspective(380px) rotateX(57deg);transform-origin:bottom;
+ border-top:2px solid #55594a;box-shadow:0 -15px 35px #000a;
+}
+.wall-label{top:4.5vh;left:4vw;color:#a2a48d;text-shadow:0 1px #000}
+.wall-lights{top:5vh;right:4vw}
+.wall-lights i{height:5px;width:30px}
+.wall-cable{border-color:#080c09;box-shadow:2px 2px 0 #59604e}
+.cable-one{left:0;bottom:18%;width:17vw;height:19vh}
+.cable-two{right:0;top:19%;width:15vw;height:20vh}
+.scene{
+ width:min(1600px,calc(100% - 8vw));
+ min-height:91svh;
+ margin:2vh auto 0;
+ grid-template-columns:clamp(66px,7vw,112px) minmax(0,1fr) clamp(66px,7vw,112px);
+ gap:clamp(8px,1.5vw,22px);
+ align-content:center;
+ padding-bottom:7vh;
+}
+.monitor{
+ width:100%;
+ transform:perspective(1700px) rotateX(1.2deg) scale(1.015);
+ box-shadow:0 3px 0 #9a9885 inset,0 -5px 0 #11130f inset,0 46px 80px #000e,0 15px 24px #000b,0 0 100px #b9a77b18;
+}
+.side-console{
+ min-height:clamp(420px,57vh,660px);
+ margin:0;
+ padding:20px 10px;
+ background:linear-gradient(90deg,#111611 0%,#44483c 18%,#292e27 52%,#151a15 100%);
+ box-shadow:inset 3px 0 #77796a,inset -3px 0 #080a08,0 25px 38px #000b;
+}
+.monitor-foot{padding-top:14px}
+.scene::before{
+ content:"";position:absolute;z-index:-1;left:-5vw;right:-5vw;bottom:0;height:8vh;
+ background:linear-gradient(180deg,#45483d,#171c17 24%,#080b09 100%);
+ border-top:2px solid #666858;
+ box-shadow:0 -10px 35px #0009,0 18px 30px #000;
+ transform:perspective(500px) rotateX(-7deg);
+}
+.scene::after{
+ content:"";position:absolute;z-index:-1;left:10%;right:10%;bottom:1.2vh;height:2px;
+ background:linear-gradient(90deg,transparent,#a1a08366 20%,#a1a08366 80%,transparent);
+}
+@media(max-width:1100px){
+ .scene{width:calc(100% - 36px);grid-template-columns:70px minmax(0,1fr) 70px}
+ .screen-content{padding-left:22px;padding-right:22px}
+ .side-console{min-height:480px}
+}
+@media(max-width:900px){
+ .scene{width:calc(100% - 28px);min-height:0;padding:7vh 0 12vh;margin:0 auto;grid-template-columns:1fr}
+ .scene::before{height:9vh}
+ .side-console{display:none}
+ .monitor{grid-column:1;transform:none}
+ .monitor-foot{grid-column:1}
+ .room-background::after{height:25%}
+}
+@media(max-width:760px){
+ .scene{width:calc(100% - 18px);padding:5vh 0 10vh}
+ .room-background::after{height:20%}
+ .wall-label{left:12px;top:12px;font-size:7px}
+ .wall-lights{right:12px;top:14px}
+}
