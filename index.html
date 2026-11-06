@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#080d0b" />
+  <meta name="theme-color" content="#090b0a" />
   <title>MU/TH/UR 6000 — Personnel Access Terminal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,11 +13,20 @@
 </head>
 <body>
   <div class="room-glow" aria-hidden="true"></div>
+  <div class="room-background" aria-hidden="true">
+    <div class="wall-label">NOSTROMO / CREW SYSTEMS</div>
+    <div class="wall-lights"><i></i><i></i><i></i><i></i></div>
+    <div class="wall-cable cable-one"></div><div class="wall-cable cable-two"></div>
+  </div>
   <main class="scene">
+    <div class="side-console side-left" aria-hidden="true">
+      <div class="side-title">POWER / BUS</div><div class="side-meter"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="side-readout">24.8V<br/>NOMINAL</div><div class="side-knob"></div><div class="side-slots"><i></i><i></i><i></i></div>
+    </div>
     <div class="monitor">
       <div class="monitor-top">
         <span class="brand-plate">WEYLAND SYSTEMS <b>◈</b></span>
-        <span class="monitor-model">CRT DISPLAY UNIT / 04</span>
+        <span class="monitor-model">CRT DISPLAY UNIT / 04 — INDUSTRIAL SERIES</span>
         <span class="power-led"><i></i> POWER</span>
       </div>
       <div class="bezel">
@@ -36,6 +45,13 @@
               <p class="micro-label">MU/TH/UR 6000 MAINFRAME <span>—</span> PERSONNEL SECURITY</p>
               <h1>IDENTITY <span>VERIFICATION</span></h1>
               <p class="terminal-subtitle">AUTHORIZED CREW ACCESS ONLY / PLEASE GENERATE YOUR CREDENTIAL</p>
+            </section>
+
+            <section class="telemetry-strip" aria-hidden="true">
+              <div><span>REACTOR</span><b>ONLINE</b><i class="meter-bars"><u></u><u></u><u></u><u></u><u></u></i></div>
+              <div><span>SHIP TIME</span><b>03:17:08</b><i class="telemetry-line"></i></div>
+              <div><span>SECURITY</span><b class="amber-text">LEVEL 03</b><i class="telemetry-line amber-line"></i></div>
+              <div><span>NETWORK</span><b>LOCAL BUS</b><i class="meter-bars amber-bars"><u></u><u></u><u></u><u></u></i></div>
             </section>
 
             <section class="terminal-grid">
@@ -96,6 +112,10 @@
         <div class="monitor-controls"><span class="control-knob"></span><span class="control-label">CONTRAST</span><span class="control-knob small"></span><span class="control-label">BRIGHT</span><span class="monitor-led"></span></div>
         <span class="serial">M/Y NOSTROMO — TERMINAL 06</span>
       </div>
+    </div>
+    <div class="side-console side-right" aria-hidden="true">
+      <div class="side-title">AUX / CONTROL</div><div class="aux-display"><i></i><i></i><i></i></div>
+      <div class="side-readout">AUX 04<br/>STANDBY</div><div class="side-knob"></div><div class="side-slots"><i></i><i></i><i></i></div>
     </div>
     <div class="monitor-foot"><span>◈</span><span>INDUSTRIAL COMPUTING DIVISION</span><span>PROPERTY OF WEYLAND-YUTANI</span></div>
   </main>
