@@ -3,88 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#10151c" />
-  <title>CIPHER VAULT — Password Generator</title>
+  <meta name="theme-color" content="#080d0b" />
+  <title>MU/TH/UR 6000 — Personnel Access Terminal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./src/css/estilo.css" />
   <script src="./src/js/index.js" defer></script>
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
-  <main class="vault-shell">
-    <header class="topbar">
-      <a class="wordmark" href="#" aria-label="Cipher Vault início">
-        <span class="vault-icon"><i></i><i></i><i></i></span>
-        <span>CIPHER<span class="wordmark-light">/VAULT</span></span>
-      </a>
-      <div class="top-center"><span class="status-led"></span> LOCAL GENERATION ENGINE <span class="slash">/</span> SECURE MODE</div>
-      <div class="top-code">SYS.ID 08—41</div>
-    </header>
-
-    <section class="hero">
-      <p class="kicker"><span>SECURITY TOOLKIT</span><span class="kicker-line"></span><span>MODULE 01</span></p>
-      <h1>ACCESS<br/><span>PROTECTED.</span></h1>
-      <p class="hero-copy">Gere credenciais aleatórias com controle total sobre os caracteres. Sua senha é criada localmente no navegador.</p>
-    </section>
-
-    <section class="vault-layout">
-      <div class="main-console">
-        <div class="console-head">
-          <div><span class="section-tag">01 / OUTPUT</span><h2>Generated key</h2></div>
-          <span class="chip"><i></i> READY</span>
-        </div>
-        <div class="password-display">
-          <div class="display-label">YOUR PASSWORD <span>● PRIVATE</span></div>
-          <output id="generated-password" aria-live="polite">••••••••••••••••</output>
-          <div class="display-bottom">
-            <span id="password-placeholder">AGUARDANDO GERAÇÃO...</span>
-            <button id="copy-password" type="button" disabled><span>▣</span> COPY KEY</button>
-          </div>
-        </div>
-
-        <div class="strength-row">
-          <div class="strength-label"><span>ESTIMATED STRENGTH</span><strong id="strength-text">NOT GENERATED</strong></div>
-          <div class="strength-meter" id="strength-meter" aria-label="Força estimada da senha">
-            <i></i><i></i><i></i><i></i><i></i>
-          </div>
-        </div>
-
-        <button id="generate-password" class="generate-button" type="button">
-          <span class="generate-symbol">↻</span><span>GENERATE NEW PASSWORD</span><span class="generate-shortcut">[ ENTER ]</span>
-        </button>
-
-        <p class="feedback" id="feedback" role="status" aria-live="polite">ENGINE READY — CONFIGURE YOUR KEY</p>
+  <div class="room-glow" aria-hidden="true"></div>
+  <main class="scene">
+    <div class="monitor">
+      <div class="monitor-top">
+        <span class="brand-plate">WEYLAND SYSTEMS <b>◈</b></span>
+        <span class="monitor-model">CRT DISPLAY UNIT / 04</span>
+        <span class="power-led"><i></i> POWER</span>
       </div>
+      <div class="bezel">
+        <span class="screw screw-tl"></span><span class="screw screw-tr"></span>
+        <span class="screw screw-bl"></span><span class="screw screw-br"></span>
+        <div class="screen">
+          <div class="screen-scanlines" aria-hidden="true"></div>
+          <div class="screen-content">
+            <header class="terminal-header">
+              <div class="terminal-brand"><span class="brand-symbol">◈</span><span>WEYLAND-YUTANI CORP.</span></div>
+              <div class="terminal-status"><i></i> SYSTEM ONLINE</div>
+              <div class="terminal-clock">LV-426 / 03:17:08</div>
+            </header>
 
-      <aside class="settings-panel">
-        <div class="settings-head"><span class="section-tag">02 / CONFIGURATION</span><span class="settings-number">CFG—008</span></div>
-        <h2>Key parameters</h2>
+            <section class="terminal-title">
+              <p class="micro-label">MU/TH/UR 6000 MAINFRAME <span>—</span> PERSONNEL SECURITY</p>
+              <h1>IDENTITY <span>VERIFICATION</span></h1>
+              <p class="terminal-subtitle">AUTHORIZED CREW ACCESS ONLY / PLEASE GENERATE YOUR CREDENTIAL</p>
+            </section>
 
-        <div class="length-control">
-          <div class="setting-line"><label for="length">PASSWORD LENGTH</label><output id="length-value">18</output></div>
-          <input id="length" type="range" min="8" max="64" value="18" />
-          <div class="range-ends"><span>08 CHAR</span><span>64 CHAR</span></div>
+            <section class="terminal-grid">
+              <div class="terminal-main">
+                <div class="section-heading"><span>[ 01 ] ENCRYPTION KEY</span><span class="section-state">OUTPUT READY</span></div>
+                <div class="password-window">
+                  <div class="window-label">GENERATED ACCESS STRING <span>● CLASSIFIED</span></div>
+                  <output id="generated-password" aria-live="polite">••••••••••••••••</output>
+                  <div class="window-footer">
+                    <span id="password-placeholder">AWAITING INPUT...</span>
+                    <button id="copy-password" type="button" disabled>[ COPY ]</button>
+                  </div>
+                </div>
+
+                <div class="strength-row">
+                  <div class="strength-label"><span>KEY INTEGRITY</span><strong id="strength-text">NOT GENERATED</strong></div>
+                  <div class="strength-meter" id="strength-meter" aria-label="Força estimada da senha">
+                    <i></i><i></i><i></i><i></i><i></i>
+                  </div>
+                </div>
+
+                <button id="generate-password" class="generate-button" type="button">
+                  <span>▶</span><span>INITIALIZE KEY GENERATION</span><span class="generate-shortcut">[ ENTER ]</span>
+                </button>
+                <p class="feedback" id="feedback" role="status" aria-live="polite">SYSTEM IDLE — CONFIGURE SECURITY PARAMETERS</p>
+              </div>
+
+              <aside class="terminal-settings">
+                <div class="section-heading"><span>[ 02 ] PARAMETERS</span><span class="settings-number">CFG—008</span></div>
+                <h2>Security protocol</h2>
+                <div class="length-control">
+                  <div class="setting-line"><label for="length">KEY LENGTH</label><output id="length-value">18</output></div>
+                  <input id="length" type="range" min="8" max="64" value="18" />
+                  <div class="range-ends"><span>08 CHAR</span><span>64 CHAR</span></div>
+                </div>
+
+                <div class="options-group">
+                  <p class="options-title">CHARACTER MATRIX</p>
+                  <label class="option-row" for="uppercase"><span class="option-copy"><strong>UPPERCASE</strong><small>A—Z</small></span><input id="uppercase" type="checkbox" checked /><span class="toggle"></span></label>
+                  <label class="option-row" for="lowercase"><span class="option-copy"><strong>LOWERCASE</strong><small>a—z</small></span><input id="lowercase" type="checkbox" checked /><span class="toggle"></span></label>
+                  <label class="option-row" for="numbers"><span class="option-copy"><strong>NUMERALS</strong><small>0—9</small></span><input id="numbers" type="checkbox" checked /><span class="toggle"></span></label>
+                  <label class="option-row" for="symbols"><span class="option-copy"><strong>SYMBOLS</strong><small>! @ # $ % &</small></span><input id="symbols" type="checkbox" /><span class="toggle"></span></label>
+                </div>
+                <div class="system-note"><span>!</span><p>SELECT AT LEAST ONE CHARACTER MATRIX. KEY IS GENERATED LOCALLY ON THIS TERMINAL.</p></div>
+              </aside>
+            </section>
+
+            <footer class="terminal-footer">
+              <span>MU/TH/UR 6000 <b>·</b> BUILD 01.79</span>
+              <span>NO NETWORK TRANSMISSION <b>·</b> LOCAL PROCESS</span>
+              <span>© 2122 WEYLAND-YUTANI</span>
+            </footer>
+          </div>
         </div>
-
-        <div class="options-group">
-          <p class="options-title">CHARACTER SET</p>
-          <label class="option-row" for="uppercase"><span class="option-copy"><strong>Uppercase</strong><small>A — Z</small></span><input id="uppercase" type="checkbox" checked /><span class="toggle"></span></label>
-          <label class="option-row" for="lowercase"><span class="option-copy"><strong>Lowercase</strong><small>a — z</small></span><input id="lowercase" type="checkbox" checked /><span class="toggle"></span></label>
-          <label class="option-row" for="numbers"><span class="option-copy"><strong>Numbers</strong><small>0 — 9</small></span><input id="numbers" type="checkbox" checked /><span class="toggle"></span></label>
-          <label class="option-row" for="symbols"><span class="option-copy"><strong>Symbols</strong><small>! @ # $ % &</small></span><input id="symbols" type="checkbox" /><span class="toggle"></span></label>
-        </div>
-
-        <div class="settings-note"><span class="note-icon">i</span><p>Selecione ao menos um conjunto de caracteres. Quanto maior e mais variada a senha, melhor tende a ser sua resistência.</p></div>
-      </aside>
-    </section>
-
-    <footer class="footer">
-      <span>CIPHER VAULT <b>—</b> PERSONAL SECURITY TOOL</span>
-      <span>NO ACCOUNT <b>·</b> NO STORAGE <b>·</b> NO TRACKING</span>
-      <span>BUILD 2026.08</span>
-    </footer>
+      </div>
+      <div class="monitor-bottom">
+        <div class="vent-grille"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="monitor-controls"><span class="control-knob"></span><span class="control-label">CONTRAST</span><span class="control-knob small"></span><span class="control-label">BRIGHT</span><span class="monitor-led"></span></div>
+        <span class="serial">M/Y NOSTROMO — TERMINAL 06</span>
+      </div>
+    </div>
+    <div class="monitor-foot"><span>◈</span><span>INDUSTRIAL COMPUTING DIVISION</span><span>PROPERTY OF WEYLAND-YUTANI</span></div>
   </main>
 </body>
 </html>
